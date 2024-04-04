@@ -6,8 +6,8 @@ endif::masterdoc[]
 
 :leveloffset: +1
 
-== Lisez !
-* Des livres (cf. la bibliographie en début de cours)
+= Lisez !
+* Des livres
 * Des blogs (https://dzone.com/[DZone], https://www.infoq.com/[InfoQ], https://blog.jetbrains.com/idea/tag/java-annotated/[Java Annotated Monthly]), wiki (http://wiki.c2.com/[C2 wiki]), flux, ...
 * Des questions/réponses (https://stackoverflow.com/[Stack Overflow])
 * *Du code* (http://wiki.c2.com/?TipsForReadingCode[Tips For Reading Code], https://github.com/explore[github], http://wiki.c2.com/?ProgramsToRead[Programs To Read])
@@ -16,7 +16,10 @@ CAUTION: pour les langages, attention aux versions (Java >= 8)
 
 IMPORTANT: Ayez l'esprit critique (toutes les pages ne se valent pas)
 
-== Pratiquez !
+//TODO Veille
+// DEVOXX
+
+= Pratiquez !
 * http://codekata.com/[Kata], Koans, https://fr.wikipedia.org/wiki/Coding_dojo[Coding Dojo]
 
 .Ajoutez des contraintes

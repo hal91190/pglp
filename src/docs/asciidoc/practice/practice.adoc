@@ -1,4 +1,4 @@
-= Quelques bonnes pratiques
+= Bonnes pratiques de développement logiciel
 ifndef::masterdoc[]
 include::../meta.adoc[]
 include::../attributes.adoc[]
@@ -6,9 +6,36 @@ endif::masterdoc[]
 
 :leveloffset: +1
 
-= Bonnes pratiques de développement logiciel
-//TODO: bonnes pratiques issue de Clean Code et Effective Java
-//TODO: bonnes pratiques de travail (flow, ...) (https://youtu.be/7GKZhqiAxaI?si=p8KJ2zDYdszXITfZ)
+= Optimiser la session de développement
+* Automatiser ce qui peut l'être
+** les tâches (importantes ou insignifiantes) répétitives, pénibles ou fastidieuses doivent être automatisées
+** raccourcis clavier, snippets/live templates, refactoring (rename)
+** profiter de la ligne de commande (_shell_), _alias_
+* Réduire le nombre de changements de contextes (context switches)
+** gérer les distractions (sollicitations extérieures)
+** apprendre à taper au clavier
+** optimiser l'usage du clavier
+** à l'extrême, pas de déplacement des mains (cf. vim ou vi mode pour les IDE)
+** Réduire les temps d'attente (compilations, ...)
 
+NOTE: https://youtu.be/7GKZhqiAxaI?si=p8KJ2zDYdszXITfZ[Principles of effective developers], Sebastian Daschner, Voxxed Days CERN 2024
+
+= Un peu de lecture
+* Effective Java, Joshua Bloch
+* Clean Code: A Handbook of Agile Software Craftsmanship, Robert C. Martin
+* Code Complete: A Practical Handbook of Software Construction, Steve McConnell
+* The Pragmatic Programmer: Your Journey to Mastery, Andrew Hunt and David Thomas
+
+= Quelques exemples
+// Reasons to Create Your Own Types CoCo 171
+// To Comment or Not to Comment CoCo 453
+// Comments Do Not Make Up for Bad Code/Explain Yourself in Code CC 55
+
+// Function Arguments CC 40
+
+// Item 50: Make defensive copies when needed EJ
+// Item 60: Avoid float and double if exact answers are required EJ
+// Item 62: Avoid strings where other types are more appropriate
+// Item 63: Beware the performance of string concatenation (https://youtu.be/w56RUzBLaRE?si=jxD_L_tgGq1u5kXi)
 
 :leveloffset: -1
