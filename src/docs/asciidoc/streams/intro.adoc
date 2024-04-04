@@ -1,0 +1,53 @@
+= Introduction
+== Programmation impérative
+* En _programmation impérative_, un programme est
+** une *séquence d'instructions*
+** qui *modifie l'état* du programme
+* Repose sur la séquence d'instructions, l'*affectation*, les structures de contrôle
+* Permet les _effets de bord_
+** modifications de zones "partagées"
+* Suit le _paradigme_ utilisé au niveau du processeur (langage machine)
+* Basée sur la _machine de Turing_ et l'_architecture de von Neumann_
+* De nombreux langages supportent ce paradigme
+** C, Java, Python, ...
+
+== Programmation fonctionnelle
+* En _programmation fonctionnelle_, un programme est
+** un ensemble de fonctions (au sens mathématique) emboîtées
+** sans effets de bord
+* Repose sur une approche déclarative, l'évaluation de fonctions
+* Basée sur le stem:[lambda]-calcul
+* De plus en plus de langages supportent ce paradigme
+** Haskell, F#, ML, Clojure, Lisp, ...
+** Java, Scala, Python, ...
+
+== Fonctions
+[horizontal]
+Fonction _pure_:: fonction sans effet de bord
+Fonction d'ordre supérieur:: une fonction peut être passée en paramètre ou retournée par une fonction
+Fonction de première classe:: les fonctions sont traitées comme les autres données
+Fonction lambda:: fonction anonyme créée "à la volée"
+Fermeture:: fonction lambda avec son contexte
+
+== Transparence référentielle
+* Remplacer une expression par sa valeur ne change pas le résultat
+
+.Le programme suivant ne respecte pas la transparence référentielle
+[source,C,indent=0]
+----
+int globalValue = 2;
+int inc(int k) {
+  globalValue += k;
+  return globalValue;
+}
+int result = inc(1) + inc(1)); // result = 3 + 4 = 7
+globalValue = 2;
+result = 2 * inc(1); // result = 2 * 3 = 6
+----
+
+== Avantages
+* Certains programmes s'expriment plus simplement
+* Permet un raisonnement sur le programme (preuve de programmes)
+* Facilite la programmation parallèle et concurrente
+** tire partie des processeurs multi-c&oelig;urs
+

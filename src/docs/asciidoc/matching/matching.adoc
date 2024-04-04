@@ -1,0 +1,14 @@
+= Pattern matching
+ifndef::masterdoc[]
+include::../meta.adoc[]
+include::../attributes.adoc[]
+endif::masterdoc[]
+
+:leveloffset: +1
+
+= Pattern matching
+//TODO: nouvelle fonctionnalité de pattern matching en Java (https://youtu.be/V_mzFdFTk6I?si=TJ_Aq6Z0Sspr9pHD)
+// https://agiledeveloper.com/downloads.html, https://youtu.be/V7iW27F9oog?si=4oKyghAUFcChxIK0
+
+
+:leveloffset: -1

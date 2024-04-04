@@ -1,0 +1,13 @@
+= Data Oriented Programming
+ifndef::masterdoc[]
+include::../meta.adoc[]
+include::../attributes.adoc[]
+endif::masterdoc[]
+
+:leveloffset: +1
+
+= Data Oriented Programming
+//TODO: DOP (https://slides.nipafx.dev/patterns, https://youtu.be/8FRU_aGY4mY?si=UD7Z9W-oWda6T9f3) (https://gist.github.com/JosePaumard/ee935c53f942a25c3cd38027ce4e31c3, https://youtu.be/Y2pmZlP-cOU?si=PwhMPJ3_BKLEZ1Vn) (https://slides.nipafx.dev/java-x-action, https://youtu.be/4UDwrfTNmo4?si=3CPM696RnN8hjQG7)
+
+
+:leveloffset: -1

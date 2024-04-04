@@ -1,0 +1,14 @@
+= Quelques bonnes pratiques
+ifndef::masterdoc[]
+include::../meta.adoc[]
+include::../attributes.adoc[]
+endif::masterdoc[]
+
+:leveloffset: +1
+
+= Bonnes pratiques de développement logiciel
+//TODO: bonnes pratiques issue de Clean Code et Effective Java
+//TODO: bonnes pratiques de travail (flow, ...) (https://youtu.be/7GKZhqiAxaI?si=p8KJ2zDYdszXITfZ)
+
+
+:leveloffset: -1

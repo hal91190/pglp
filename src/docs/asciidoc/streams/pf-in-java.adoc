@@ -1,0 +1,175 @@
+= Programmation fonctionnelle en Java
+
+== Fonction lambda
+* Une _fonction lambda_ est une fonction anonyme
+* En Java, la syntaxe est composée
+** d'une liste de paramètres formels entre parenthèses
+** d'une flèche ->
+** d'une expression ou d'un bloc d'instructions
+
+[source,java,indent=0]
+----
+// En précisant le type et avec un bloc
+(Person p1, Person p2) -> {
+    return p1.getAge() - p2.getAge()
+}
+// Avec une expression (sans return)
+(Person p1, Person p2) -> p1.getAge() - p2.getAge()
+// Le type des paramètres est optionnel
+(person1, person2) -> person1.getAge() - person2.getAge()
+// Avec un seul paramètres, les parenthèses sont optionnelles
+person -> person.getAge()
+----
+
+== Fonction lambda et interface
+* Une fonction lambda peut être utilisée quand une _interface fonctionnelle_ est attendue
+* Une interface fonctionnelle (_functional interface_) ne doit comporter qu'une unique méthode abstraite
+* L'annotation `@FunctionalInterface` permet de marquer une telle interface
+
+.En utilisant l'interface et une classe anonyme
+[source,java,indent=0]
+----
+uneliste.sort(new Comparator<Person> {
+    public int compare(Person p1, Person p2) {
+        return p1.getAge() - p2.getAge();
+    }
+});
+----
+
+.En utilisant une fonction lambda
+[source,java,indent=0]
+----
+uneliste.sort((person1, person2) -> person1.getAge() - person2.getAge());
+----
+
+== Fermeture
+* Une _fermeture_ est une fonction lamda avec son contexte
+
+[source,java,indent=0]
+----
+public class ClosureDemo {
+    public static Function<Integer, Integer> ajouteur(int n1) {
+        return n2 -> n1 + n2;
+    }
+    public static void main(String[] args) {
+        Function<Integer, Integer> ajouteur10 = ajouteur(10);
+        assert ajouteur10(1) == 11;
+    }
+}
+----
+
+* En Java, une fermeture ne peut pas modifier les variables de son contexte
+
+== Référence de méthode
+* Une _référence de méthode_ permet d'utiliser une méthode comme fonction lambda
+* Quatre types de référence de méthode existent
+
+[options="header"]
+|===
+| Catégorie | Exemple
+
+| Référence à une méthode de classe | `ContainingClass::staticMethodName`
+
+| Référence à une méthode d'un objet précis | `containingObject::instanceMethodName`
+
+| Référence à une méthode d'un objet quelconque | `ContainingType::methodName`
+
+| Référence à un constructeur | `ClassName::new`
+
+|===
+
+== Référence de méthode (exemples)
+
+[source,java,indent=0]
+----
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+numbers.forEach(e -> System.out.println(e)); // lambda
+numbers.forEach(System.out::println); // référence de méthode (objet précis)
+
+numbers.stream()
+       // .map(e -> String.valueOf(e)) // lambda
+       .map(String::valueOf) // référence de méthode (méthode de classe)
+       .forEach(System.out::println);
+
+numbers.stream()
+       .map(String::valueOf(e))
+       // .map(e -> e.toString()) // lambda
+       .map(String::toString) // référence de méthode (objet quelconque)
+       .forEach(System.out::println);
+----
+
+== Parcourir une collection (de l'itératif au fonctionnel) 1/5
+
+.Itérateur externe avec une boucle classique
+[source,java,indent=0]
+----
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+for(int i = 0; i < numbers.size(); i++) {
+    System.out.println(numbers.get(i));
+}
+----
+
+* Beaucoup de "détails" sont visibles
+** indices limites
+** test d'arrêt
+** accès aux éléments
+
+== Parcourir une collection (de l'itératif au fonctionnel) 2/5
+
+.Itérateur externe avec une boucle foreach
+[source,java,indent=0]
+----
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+for(int e : numbers) {
+    System.out.println(e);
+}
+----
+
+* Masque les détails mais demeure impératif
+
+== Parcourir une collection (de l'itératif au fonctionnel) 3/5
+
+.Itérateur interne
+[source,java,indent=0]
+----
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+numbers.forEach(new Consumer<Integer>() {
+    public void accept(Integer value) {
+        System.out.println(value);
+    }
+});
+----
+
+* Syntaxe plus déclarative
+* L'argument de `forEach` est ici une https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.htmlhttps://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html[_classe anonyme_]
+* https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html[`java.util.function.Consumer<T>`] est une interface fonctionnelle
+* `Consumer` opère par effet de bord
+
+== Parcourir une collection (de l'itératif au fonctionnel) 4/5
+
+.Itérateur interne avec lambda
+[source,java,indent=0]
+----
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+numbers.forEach(value -> System.out.println(value));
+----
+
+* Beaucoup plus concis et lisible
+
+== Parcourir une collection (de l'itératif au fonctionnel) 5/5
+
+.Itérateur interne avec référence de méthode
+[source,java,indent=0]
+----
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+numbers.forEach(System.out::println);
+----
+
+* Le plus lisible
+

@@ -1,0 +1,26 @@
+= Compléments sur la conception logicielle
+include::meta.adoc[]
+:doctype: book
+:toc: left
+:toc-title: Sommaire
+:sectanchors:
+:sectlinks:
+:sectnums:
+:masterdoc: // les sections sont intégrées dans un document maître
+include::attributes.adoc[]
+
+:leveloffset: +1
+
+include::principles/principles.adoc[]
+
+include::streams/streams.adoc[]
+
+include::matching/matching.adoc[]
+
+include::dop/dop.adoc[]
+
+include::practice/practice.adoc[]
+
+include::todo/todo.adoc[]
+
+:leveloffset: -1
