@@ -1,4 +1,4 @@
-= Principes de conception
+= Principes généraux
 ifndef::masterdoc[]
 include::../meta.adoc[]
 include::../attributes.adoc[]
@@ -40,6 +40,7 @@ endif::masterdoc[]
 * *Toutes les sources d'information ne se valent pas !*
 * Une recherche Internet ne pointe pas toujours sur une réponse pertinente
 * Toujours préférer la documentation officielle ou des sites bien établis (https://stackoverflow.com/[Stack Overflow]) à d'obscures forums/blogs
+* *Ne pas faire de copier/coller sans avoir compris*
 ====
 
 = Law of Demeter
@@ -59,7 +60,7 @@ endif::masterdoc[]
 * Un objet connaît le minimum sur la structure de ses voisins
 * Cela limite les dépendances avec les autres objets
 
-= Exemple de la Loi de Demeter 1/5
+== Exemple de la Loi de Demeter 1/5
 .Un client paye (*version incorrecte*)
 [source,java]
 ----
@@ -75,7 +76,7 @@ if (totalMoney > AMOUNT_TO_PAY_IN_EUROS) {
 * Il dispose de plus d'informations que nécessaire
 * La validité du portefeuille n'est pas garantie
 
-= Exemple de la Loi de Demeter 2/5
+== Exemple de la Loi de Demeter 2/5
 .La classe `Customer` (*version incorrecte*)
 [source,java]
 ----
@@ -95,7 +96,7 @@ public class Customer {
 ----
 <1> Quel est l'intérêt d'avoir un attribut privé si l'accesseur le rend public ?
 
-= Exemple de la Loi de Demeter 3/5
+== Exemple de la Loi de Demeter 3/5
 .La classe `Wallet` (*version incorrecte*)
 [source,java]
 ----
@@ -116,7 +117,7 @@ public class Wallet {
 }
 ----
 
-= Exemple de la Loi de Demeter 4/5
+== Exemple de la Loi de Demeter 4/5
 .Un client paye (version corrigée)
 [source,java]
 ----
@@ -129,7 +130,7 @@ double paidAmount = theCustomer.getPayment(AMOUNT_TO_PAY_IN_EUROS);
 * La classe `Customer` est plus complexe
 ** mais la complexité a été transférée depuis le code de l'application
 
-= Exemple de la Loi de Demeter 5/5
+== Exemple de la Loi de Demeter 5/5
 .La classe `Customer` (version corrigée)
 [source,java]
 ----
