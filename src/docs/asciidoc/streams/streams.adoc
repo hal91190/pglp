@@ -12,8 +12,4 @@ include::pf-in-java.adoc[]
 
 include::streams-api.adoc[]
 
-ifdef::masterdoc[]
-include::streams-td.adoc[]
-endif::masterdoc[]
-
 :leveloffset: -1
