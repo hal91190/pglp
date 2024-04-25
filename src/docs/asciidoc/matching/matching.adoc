@@ -6,9 +6,21 @@ endif::masterdoc[]
 
 :leveloffset: +1
 
-= Pattern matching
-//TODO: nouvelle fonctionnalité de pattern matching en Java (https://youtu.be/V_mzFdFTk6I?si=TJ_Aq6Z0Sspr9pHD)
-// https://agiledeveloper.com/downloads.html, https://youtu.be/V7iW27F9oog?si=4oKyghAUFcChxIK0
+= Record
 
+= pattern matching for instanceof
+
+= pattern matching for switch
+
+= sealed interface
+
+= pattern matching for switch with record
+* variable holder
+
+= Références
+* https://youtu.be/Y2pmZlP-cOU?si=HI0qny6ccaUoqNYu[Data Oriented Programming in Java 21, Solving the Countdown game], José Paumard (https://gist.github.com/JosePaumard/ee935c53f942a25c3cd38027ce4e31c3[code])
+* https://youtu.be/V_mzFdFTk6I?si=TJ_Aq6Z0Sspr9pHD[Clean Code with Records, Sealed Classes and Pattern Matching], José Paumard
+* https://inside.java/2023/11/03/countdown-haskell-java/[Solving the Countdown problem with Java 21's Language Features], Sundar Athijegannathan
+* https://youtu.be/2EL9lUfd9tI?si=wOiPBhJXjvyTBseV[Let’s Set the Records Straight], Venkat Subramaniam (https://agiledeveloper.com/presentations/lets_set_the_records_straight.zip[code])
 
 :leveloffset: -1
