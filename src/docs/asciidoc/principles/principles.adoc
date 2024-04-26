@@ -157,4 +157,17 @@ public class Customer {
 
 * La classe `Customer` ne publie plus la méthode `getWallet()`
 
+= Don't guess, measure!
+* Quand il s'agit de performances, ne supposez pas, mesurez !
+
+[NOTE]
+====
+* https://youtu.be/w56RUzBLaRE?si=QKlnWRHAIWRiJY-j[String Concatenation], José Paumard, JEP Café #7
+* https://youtu.be/ul4wHrbJ8Fk?si=C_MZrSwi-QbGwerv[Choosing between ArrayList and LinkedList], José Paumard, JEP Cafe #20
+* https://github.com/openjdk/jmh[Java Microbenchmark Harness] (JMH)
+** https://youtu.be/VaWgOCDBxYw?si=99h0Mzz5ZQJETGsF[Java Microbenchmark Harness: The Lesser of Two Evils], Aleksey Shipilev
+* https://github.com/openjdk/jol[Java Object Layout] (JOL)
+** https://betterprogramming.pub/sweating-the-small-stuff-in-java-dbd695166d13[Sweating the small stuff in Java], Donald Raab
+====
+
 :leveloffset: -1
