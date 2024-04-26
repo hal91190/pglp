@@ -1,6 +1,8 @@
 :stem:
 :icons: font
 :imagesdir: figs
+:srcdir: ../../../main/java/fr/uvsq/pglp
+:tstdir: ../../../test/java/fr/uvsq/pglp
 :source-highlighter: highlightjs
 :revealjsdir: reveal.js
 :revealjs_theme: beige

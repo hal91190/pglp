@@ -17,13 +17,12 @@ include::streams/streams.adoc[]
 
 include::matching/matching.adoc[]
 
-include::dop/dop.adoc[]
-
 include::practice/practice.adoc[]
 
 include::todo/todo.adoc[]
 
 //TODO
 // https://dzone.com/articles/singleton-six-ways-to-write-and-uses-in-Java[Singleton: 6 Ways To Write and Use in Java Programming]
+// Don't guess, measure!
 
 :leveloffset: -1

@@ -7,20 +7,81 @@ endif::masterdoc[]
 :leveloffset: +1
 
 = Record
+.Un _record_ représentant un point en 2D
+[source,java,indent=0]
+----
+include::{srcdir}/oop/Point.java[tag=record-point]
+----
 
-= pattern matching for instanceof
+Un https://docs.oracle.com/javase/specs/jls/se22/html/jls-8.html#jls-8.10[_record_]
 
-= pattern matching for switch
+* représente un agrégat de valeurs (_tuple_)
+* est une classe immuable héritant de https://docs.oracle.com/en/java/javase/22/docs/api/java.base/java/lang/Record.html[`Record`]
+* est implicitement `final`
+* possède implicitement un constructeur canonique, des accesseurs, les méthodes `equals`/`hashCode` et une méthode `toString`
 
-= sealed interface
+[NOTE]
+====
+* https://youtu.be/2EL9lUfd9tI?si=wOiPBhJXjvyTBseV[Let’s Set the Records Straight], Venkat Subramaniam, IntelliJ IDEA Conf 2024 (https://agiledeveloper.com/presentations/lets_set_the_records_straight.zip[code])
+====
 
-= pattern matching for switch with record
-* variable holder
+= Pattern matching pour instanceof
+.Calculer l'aire d'une forme
+[source,java,indent=0]
+----
+include::{srcdir}/iofpm/Main.java[tag=area-method]
+----
+<1> Le test et le transtypage se déroulent en une instruction
+<2> Nécessaire même si non atteignable
+
+= Interface scellée (_sealed interface_) et pattern matching pour switch
+.L'interface `Shape` est scellée (ses sous-interfaces sont déclarées)
+[source,java,indent=0]
+----
+include::{srcdir}/sealint/Shape.java[tag=sealed-shape]
+----
+
+.Calculer l'aire d'une forme
+[source,java,indent=0]
+----
+include::{srcdir}/sealint/Main.java[tag=area-method]
+----
+<1> `switch` peut être utilisée comme une expression
+<2> La syntaxe du `case` est modifiée (`->` à la place de `:`, pas de `break`)
+<3> Pas de cas `default` (_sealed interface_)
+
+= Pattern matching pour switch avec record
+.`Circle` (et `Square`) sont des records
+[source,java,indent=0]
+----
+include::{srcdir}/recordpm/Circle.java[tag=record-circle]
+----
+
+.Calculer l'aire d'une forme
+[source,java,indent=0]
+----
+include::{srcdir}/recordpm/Main.java[tag=area-method]
+----
+<1> le `record` est déconstruit dans le `case`
+
+= Data-oriented programming
+* Modéliser les données comme des objets immuables
+* Rendre les états illégaux inreprésentables
+* Séparer les opérations des données
+
+[NOTE]
+====
+* https://www.infoq.com/articles/data-oriented-programming-java/[Data Oriented Programming in Java], Brian Goetz, InfoQ jun. 2022
+* https://youtu.be/8FRU_aGY4mY?si=UD7Z9W-oWda6T9f3[Data Oriented Programming in Java 21], Nicolai Parlog, VOXXED DAYS CERN 2024 (https://slides.nipafx.dev/patterns[slides], https://github.com/nipafx/loom-lab[code])
+* https://youtu.be/4UDwrfTNmo4?si=3CPM696RnN8hjQG7[Modern Java in Action], Nicolai Parlog, Jfokus 24 (https://slides.nipafx.dev/java-x-action[slides], https://github.com/nipafx/modern-java-demo[code])
+====
 
 = Références
-* https://youtu.be/Y2pmZlP-cOU?si=HI0qny6ccaUoqNYu[Data Oriented Programming in Java 21, Solving the Countdown game], José Paumard (https://gist.github.com/JosePaumard/ee935c53f942a25c3cd38027ce4e31c3[code])
-* https://youtu.be/V_mzFdFTk6I?si=TJ_Aq6Z0Sspr9pHD[Clean Code with Records, Sealed Classes and Pattern Matching], José Paumard
-* https://inside.java/2023/11/03/countdown-haskell-java/[Solving the Countdown problem with Java 21's Language Features], Sundar Athijegannathan
-* https://youtu.be/2EL9lUfd9tI?si=wOiPBhJXjvyTBseV[Let’s Set the Records Straight], Venkat Subramaniam (https://agiledeveloper.com/presentations/lets_set_the_records_straight.zip[code])
+[NOTE]
+====
+* https://youtu.be/Y2pmZlP-cOU?si=HI0qny6ccaUoqNYu[Data Oriented Programming in Java 21, Solving the Countdown game], José Paumard, JEP Cafe #22 (https://gist.github.com/JosePaumard/ee935c53f942a25c3cd38027ce4e31c3[code])
+* https://youtu.be/V_mzFdFTk6I?si=TJ_Aq6Z0Sspr9pHD[Clean Code with Records, Sealed Classes and Pattern Matching], José Paumard, DEVOXX Belgium 2022
+* https://inside.java/2023/11/03/countdown-haskell-java/[Solving the Countdown problem with Java 21's Language Features], Sundar Athijegannathan, Inside Java nov. 2023
+====
 
 :leveloffset: -1
